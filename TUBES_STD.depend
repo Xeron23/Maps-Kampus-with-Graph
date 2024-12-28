@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1735380708 source:c:\codeblock\tubes_std\main.cpp
+	<iostream>
+	"MapsKampus.h"
+
+1735380853 c:\codeblock\tubes_std\mapskampus.h
+	<iostream>
+
+1735380794 source:c:\codeblock\tubes_std\mapskampus.cpp
+	"MapsKampus.h"
+
