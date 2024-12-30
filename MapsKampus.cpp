@@ -85,7 +85,6 @@ adrGedung searchGedung(mapsKampus &G, string namaGedung){
     return NULL;
 }
 
-// Fungsi untuk mencari jalur terpendek menggunakan Dijkstra
 int minDistance(int dist[], bool visited[], int n) {
     int min = MAX_DIST, min_index;
     for (int v = 0; v < n; v++) {
@@ -102,20 +101,16 @@ int calculateShortestDistance(mapsKampus &G, string src, string dst, int &dstInd
     int dist[MAX_GEDUNG];
     bool visited[MAX_GEDUNG];
     while (temp != NULL) {
-        gedung[numGedung] = temp->namaGedung; //Array Nama Gedung[]
-        gedungArray[numGedung] = temp; // Array gedung[]
-        numGedung++; // increament
+        gedung[numGedung] = temp->namaGedung;
+        gedungArray[numGedung] = temp;
+        numGedung++;
         temp = temp->nextGedung;
     }
-    // numGedung = 7
-    // set default value to inedex
     for (int i = 0; i < numGedung; i++) {
         dist[i] = MAX_DIST;
         visited[i] = false;
         previous[i] = -1;
     }
-
-    // mencari apakah gedung ada atau tidak
     int srcIndex = -1;
     for (int i = 0; i < numGedung; i++) {
         if (gedung[i] == src) {
@@ -181,7 +176,7 @@ void fastTestRoute(mapsKampus &G, string src, string dst) {
     int shortestDistance = calculateShortestDistance(G, src, dst, dstIndex, previous, gedung, gedungArray, numGedung);
 
     if (shortestDistance == -1) {
-        return; // Gedung tidak ditemukan
+        return;
     }
 
     if (shortestDistance == MAX_DIST) {
@@ -213,7 +208,6 @@ void estimateTime(mapsKampus &G, string kendaraan){
 };
 
 void printGraph(mapsKampus &G) {
-    // Mencetak graf gedung dan jalan dalam bentuk ASCII
     adrGedung currentGedung = G.firstGedung;
 
     cout << "===== VISUALISASI GRAF KAMPUS =====\n";
